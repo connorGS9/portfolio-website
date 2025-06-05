@@ -1,0 +1,84 @@
+body {
+    cursor: none;
+  }
+  
+  /* But keep default cursor on touch devices */
+  @media (pointer: coarse) {
+    body {
+      cursor: auto;
+    }
+    
+    .cursor, .cursor-dot {
+      display: none;
+    }
+  }
+  
+  /* Custom cursor styles */
+  .cursor {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0;
+    mix-blend-mode: difference;
+  }
+  
+  .cursor::before,
+  .cursor::after {
+    content: '';
+    position: absolute;
+    background-color: #4a9eff;
+    opacity: 0.8;
+  }
+  
+  .cursor::before {
+    width: 2px;
+    height: 20px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .cursor::after {
+    width: 20px;
+    height: 2px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .cursor-dot {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background-color: #4a9eff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Cursor states */
+  .cursor--clicked::before,
+  .cursor--clicked::after {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  
+  .cursor--link-hovered::before,
+  .cursor--link-hovered::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  
+  .cursor-dot--clicked {
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0.5;
+  }
+  
+  .cursor-dot--link-hovered {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 1;
+  }

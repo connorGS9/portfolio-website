@@ -10,7 +10,7 @@ const BackgroundAnimation = () => {
     let animationFrameId;
     let particles = [];
     
-    // Particle class
+    //Particle class for background
     class Particle {
       constructor() {
         this.x = Math.random() * canvas.width;
@@ -37,7 +37,7 @@ const BackgroundAnimation = () => {
       }
     }
     
-    // Set canvas dimensions
+    //Set the dimensions
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -47,7 +47,7 @@ const BackgroundAnimation = () => {
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
     
-    // Initialize particles
+    //Initialize the particles
     function initParticles() {
       particles = [];
       const particleCount = Math.floor((canvas.width * canvas.height) / 15000);
@@ -57,7 +57,7 @@ const BackgroundAnimation = () => {
       }
     }
     
-    // Connect particles with lines
+    //Connect the particles with the lines
     function connectParticles() {
       const maxDistance = 150;
       
@@ -80,7 +80,7 @@ const BackgroundAnimation = () => {
       }
     }
     
-    // Animation loop
+    //Animation loop for bg
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
@@ -95,7 +95,7 @@ const BackgroundAnimation = () => {
     
     animate();
     
-    // Cleanup
+
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       cancelAnimationFrame(animationFrameId);

@@ -18,12 +18,12 @@ const AnimatedCursor = () => {
       const clientX = e.clientX;
       const clientY = e.clientY;
       
-      // Position the outer cursor with a slight delay for the trailing effect
+      //Position the outer cursor with a slight delay
       const setPos = () => {
         cursor.style.transform = `translate3d(${clientX}px, ${clientY}px, 0)`;
       };
       
-      // Position the inner dot immediately
+      //Position the inner dot
       cursorDot.style.transform = `translate3d(${clientX}px, ${clientY}px, 0)`;
       
       requestAnimationFrame(setPos);
@@ -49,7 +49,7 @@ const AnimatedCursor = () => {
       cursorDot.style.opacity = 0;
     };
     
-    // Check for interactive elements
+    //Check for the interactive elements
     const handleLinkHover = () => {
       setIsLinkHovered(true);
     };
@@ -58,7 +58,7 @@ const AnimatedCursor = () => {
       setIsLinkHovered(false);
     };
     
-    // Add event listeners to links, buttons, and other interactive elements
+    //Add event listeners to links, buttons, and other interactive elements
     const interactiveElements = document.querySelectorAll('a, button, input, textarea, select, [role="button"]');
     
     interactiveElements.forEach(el => {
@@ -66,7 +66,7 @@ const AnimatedCursor = () => {
       el.addEventListener('mouseleave', handleLinkLeave);
     });
     
-    // Add general mouse event listeners
+    //Add general mouse event listeners
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mousedown', onMouseDown);
     document.addEventListener('mouseup', onMouseUp);
